@@ -14,3 +14,16 @@ class Numeric
     self == 0 and 0.0 or (1 / (1 / self).send(currency))
   end
 end
+
+class String
+  def palindrome?
+    string = self.gsub(/\W/,'').downcase
+    string == string.reverse
+  end
+end
+
+module Enumerable
+  def palindrome?
+    self.respond_to?"reverse" and  self == self.reverse
+  end
+end
