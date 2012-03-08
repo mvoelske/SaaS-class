@@ -24,6 +24,6 @@ end
 
 module Enumerable
   def palindrome?
-    self.respond_to?"reverse" and  self == self.reverse
+    self.each.zip(self.reverse_each).map { |a,b| a == b }.all?
   end
 end
